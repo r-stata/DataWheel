@@ -26,15 +26,21 @@
 
 **主界面** —— 拖放卡片 + 最近转换 + 通知卡片（最多保留 5 条，可一键全部关闭）：
 
-![主界面](docs/screenshots/main.png)
+<p align="center">
+  <img align="center" src="docs/screenshots/main.png" width="80%" alt="主界面" />
+</p>
 
 **甜甜圈转盘** —— 拖入文件后在光标处弹出，松手到目标扇区即完成转换；转盘锚定在原地，不会跟着鼠标乱跑：
 
-![转盘](docs/screenshots/donut.png)
+<p align="center">
+  <img align="center" src="docs/screenshots/donut.png" width="40%" alt="转盘" />
+</p>
 
 **设置中心** —— 权限自检、组合快捷键、Python 环境检测、dta 标签一站式配置：
 
-![设置](docs/screenshots/settings.png)
+<p align="center">
+  <img align="center" src="docs/screenshots/settings.png" width="50%" alt="设置" />
+</p>
 
 ## ✨ 功能特性
 

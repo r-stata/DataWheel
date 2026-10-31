@@ -26,15 +26,21 @@
 
 **Main window** — drop card + recent conversions + notification stack (keeps the latest 5, dismiss all with one click):
 
-![Main window](docs/screenshots/main.png)
+<p align="center">
+  <img align="center" src="docs/screenshots/main.png" width="80%" alt="Main window" />
+</p>
 
 **The donut wheel** — pops up right under your cursor when you drop a file; release onto a slice to convert. The wheel stays anchored where it appeared, so you can actually aim:
 
-![Donut wheel](docs/screenshots/donut.png)
+<p align="center">
+  <img align="center" src="docs/screenshots/donut.png" width="40%" alt="Donut wheel" />
+</p>
 
 **Settings hub** — permission self-checks, modifier combos, Python environment detection and the .dta label, all in one place:
 
-![Settings](docs/screenshots/settings.png)
+<p align="center">
+  <img align="center" src="docs/screenshots/settings.png" width="50%" alt="Settings" />
+</p>
 
 ## ✨ Features
 
