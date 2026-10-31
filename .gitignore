@@ -18,5 +18,3 @@ build/dist/DataWheel-arm64.dmg
 build/dist/DataWheel-x86_64.dmg
 native/build_dmg.sh
 .workbuddy/
-.workbuddy/memory/2026-10-31.md
-native/Sources/Engine.swift
