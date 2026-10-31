@@ -33,7 +33,7 @@ final class Engine {
             candidates.append(res.appendingPathComponent(".venv/bin/python").path)
         }
         // 开发态：源码目录下的 venv（native/Sources 相对项目根）
-        candidates.append("/Users/ac/Desktop/数据格式转换应用/.venv/bin/python")
+        candidates.append("/Users/ac/Documents/GitHub/DataWheel/.venv/bin/python")
         candidates.append("/opt/homebrew/bin/python3")
         candidates.append("/usr/local/bin/python3")
         for c in candidates where FileManager.default.isExecutableFile(atPath: c) {
@@ -46,7 +46,7 @@ final class Engine {
         // 优先 bundle 资源，其次源码目录
         if let res = Bundle.main.resourceURL?.appendingPathComponent("engine/engine.py").path,
            FileManager.default.fileExists(atPath: res) { return res }
-        let dev = "/Users/ac/Desktop/数据格式转换应用/engine/engine.py"
+        let dev = "/Users/ac/Documents/GitHub/DataWheel/engine/engine.py"
         if FileManager.default.fileExists(atPath: dev) { return dev }
         return nil
     }
