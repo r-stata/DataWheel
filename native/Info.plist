@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleName</key>
+	<string>DataWheel</string>
+	<key>CFBundleDisplayName</key>
+	<string>DataWheel 数据转盘</string>
+	<key>CFBundleIdentifier</key>
+	<string>com.rstata.datawheel</string>
+	<key>CFBundleVersion</key>
+	<string>2.0.0</string>
+	<key>CFBundleShortVersionString</key>
+	<string>2.0.0</string>
+	<key>CFBundleExecutable</key>
+	<string>DataWheel</string>
+	<key>CFBundlePackageType</key>
+	<string>APPL</string>
+	<key>CFBundleIconFile</key>
+	<string>icon.icns</string>
+	<key>LSMinimumSystemVersion</key>
+	<string>13.0</string>
+	<!-- 后台常驻：禁用 App Nap / App Sleep，保证不在前台时快捷键拖拽即时响应 -->
+	<key>LSAppNapIsDisabled</key>
+	<true/>
+	<key>NSAppSleepDisabled</key>
+	<true/>
+	<key>NSHighResolutionCapable</key>
+	<true/>
+	<key>NSPrincipalClass</key>
+	<string>NSApplication</string>
+	<key>LSApplicationCategoryType</key>
+	<string>public.app-category.utilities</string>
+	<key>NSHumanReadableCopyright</key>
+	<string>开发：微信公众号 RStata · 参考 KnifeLemon/Filee 转盘交互 · 本地转换，不上传数据</string>
+	<key>Credits</key>
+	<string>开发：微信公众号 RStata
+参考 KnifeLemon/Filee 转盘交互
+本地转换 · 数据不上传</string>
+
+	<!-- 右键文件 → 服务 → 用 DataWheel 转换 -->
+	<key>NSServices</key>
+	<array>
+		<dict>
+			<key>NSMenuItem</key>
+			<dict>
+				<key>default</key>
+				<string>用 DataWheel 转换</string>
+			</dict>
+			<key>NSMessage</key>
+			<string>convertService</string>
+			<key>NSSendTypes</key>
+			<array>
+				<string>NSFilenamesPboardType</string>
+			</array>
+			<key>NSSendFileTypes</key>
+			<array>
+				<string>public.item</string>
+			</array>
+		</dict>
+	</array>
+
+	<!-- 支持在 Finder「打开方式」中选择 -->
+	<key>CFBundleDocumentTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeName</key>
+			<string>数据文件</string>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleTypeExtensions</key>
+			<array>
+				<string>csv</string><string>tsv</string><string>txt</string>
+				<string>xlsx</string><string>xls</string>
+				<string>dta</string>
+				<string>rds</string><string>rdata</string>
+				<string>parquet</string><string>pq</string>
+				<string>feather</string><string>arrow</string>
+				<string>json</string><string>jsonl</string><string>ndjson</string>
+			</array>
+		</dict>
+	</array>
+</dict>
+</plist>

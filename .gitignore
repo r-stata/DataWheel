@@ -1,0 +1,16 @@
+# Python
+.venv/
+__pycache__/
+*.pyc
+
+# Node（Electron 渲染工具，仅构建期使用）
+node_modules/
+
+# 构建产物
+build/DataWheel.app/
+build/icon.iconset/
+.DS_Store
+
+# Xcode / Swift
+*.o
+.build/

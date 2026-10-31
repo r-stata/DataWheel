@@ -1,0 +1,15 @@
+{
+  "name": "datawheel",
+  "productName": "DataWheel 数据转盘",
+  "version": "1.0.0",
+  "description": "数据科学常用格式转换器 — xlsx/csv/dta/rds/parquet/feather/json，Filee 式转盘交互",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "shot": "DATAWHEEL_SHOT=1 electron ."
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^45.1.0"
+  }
+}

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline'" />
+  <title>DataWheel 数据转盘</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- 顶栏 -->
+  <header id="topbar">
+    <div class="brand">
+      <span class="brand-mark"></span>
+      <span class="brand-name">DataWheel</span>
+      <span class="brand-sub">数据转盘 · 本地格式转换</span>
+    </div>
+    <button id="btn-settings" title="设置">
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+    </button>
+  </header>
+
+  <!-- 主页 -->
+  <main id="home">
+    <div id="dropzone" role="button" tabindex="0">
+      <div class="dz-wheel">
+        <svg viewBox="0 0 120 120" width="84" height="84" aria-hidden="true">
+          <g class="dz-wheel-anim">
+            <circle cx="60" cy="60" r="14" fill="none" stroke="#C9CFDA" stroke-width="7"/>
+            <path d="M60 14 A46 46 0 0 1 97.5 37.5" fill="none" stroke="#F59E0B" stroke-width="11" stroke-linecap="round"/>
+            <path d="M101 46 A46 46 0 0 1 101 74" fill="none" stroke="#16A34A" stroke-width="11" stroke-linecap="round"/>
+            <path d="M94 95 A46 46 0 0 1 71 105" fill="none" stroke="#2563EB" stroke-width="11" stroke-linecap="round"/>
+            <path d="M56 106 A46 46 0 0 1 22 87" fill="none" stroke="#8B5CF6" stroke-width="11" stroke-linecap="round"/>
+            <path d="M17 78 A46 46 0 0 1 17 42" fill="none" stroke="#EC4899" stroke-width="11" stroke-linecap="round"/>
+          </g>
+        </svg>
+      </div>
+      <h2>将数据文件拖入窗口</h2>
+      <p class="dz-hint">转盘会在光标处弹出 — 松开到目标格式扇区即完成转换</p>
+      <p class="dz-sub">支持 xlsx / xls · csv / tsv · dta · rds · parquet · feather · json / jsonl</p>
+      <button id="btn-pick" class="btn-ghost">或点按选择文件</button>
+    </div>
+
+    <section id="recents">
+      <div class="sec-head">
+        <h3>最近转换</h3>
+        <button id="btn-clear-recents" class="link-btn">清空</button>
+      </div>
+      <ul id="recents-list"></ul>
+      <p id="recents-empty" class="empty-tip">暂无转换记录</p>
+    </section>
+  </main>
+
+  <!-- 转盘层 -->
+  <div id="donut-layer" class="hidden">
+    <div id="donut-anchor">
+      <svg id="donut-svg" viewBox="0 0 360 360" width="360" height="360"></svg>
+      <div id="hub">
+        <div id="hub-count">0</div>
+        <div id="hub-text">拖到目标格式</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 任务通知 -->
+  <div id="jobs"></div>
+
+  <!-- 设置 -->
+  <div id="settings-modal" class="hidden">
+    <div class="modal-card">
+      <h3>设置</h3>
+      <label class="field">
+        <span>Python 解释器</span>
+        <input id="set-python" type="text" placeholder="留空自动探测（需已安装 pandas / pyreadstat / pyarrow / pyreadr）" spellcheck="false"/>
+      </label>
+      <div class="field">
+        <span>输出位置</span>
+        <div class="radio-group">
+          <label><input type="radio" name="outmode" value="source"/> 源文件所在目录</label>
+          <label><input type="radio" name="outmode" value="ask"/> 每次询问</label>
+          <label><input type="radio" name="outmode" value="custom"/> 固定目录
+            <input id="set-outdir" type="text" spellcheck="false" placeholder="目录路径"/>
+            <button id="btn-browse-outdir" class="btn-ghost small">浏览…</button>
+          </label>
+        </div>
+      </div>
+      <div class="modal-actions">
+        <button id="btn-settings-cancel" class="btn-ghost">取消</button>
+        <button id="btn-settings-save" class="btn-primary">保存</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
