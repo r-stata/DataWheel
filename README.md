@@ -33,7 +33,7 @@
 **The donut wheel** — pops up right under your cursor when you drop a file; release onto a slice to convert. The wheel stays anchored where it appeared, so you can actually aim:
 
 <p align="center">
-  <img align="center" src="docs/screenshots/donut.png" width="40%" alt="Donut wheel" />
+  <img align="center" src="docs/screenshots/donut.png" width="80%" alt="Donut wheel" />
 </p>
 
 **Settings hub** — permission self-checks, modifier combos, Python environment detection and the .dta label, all in one place:

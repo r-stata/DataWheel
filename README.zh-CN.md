@@ -33,7 +33,7 @@
 **甜甜圈转盘** —— 拖入文件后在光标处弹出，松手到目标扇区即完成转换；转盘锚定在原地，不会跟着鼠标乱跑：
 
 <p align="center">
-  <img align="center" src="docs/screenshots/donut.png" width="40%" alt="转盘" />
+  <img align="center" src="docs/screenshots/donut.png" width="80%" alt="转盘" />
 </p>
 
 **设置中心** —— 权限自检、组合快捷键、Python 环境检测、dta 标签一站式配置：
